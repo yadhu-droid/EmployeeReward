@@ -1,0 +1,69 @@
+<nav>
+    <a class="mousehover default">Home</a>
+    <a routerLink="/adminproducts">Products</a>
+    <a routerLink="/addproducts">Product Allocation</a>
+    <a routerLink="/addpoints">Point Allocation</a>
+    <a routerLink="/viewemployees">View Employees</a>
+    <a routerLink="/employeebyadmin">Add Employees</a>
+    <a routerLink="/employee">Login as Employee</a>
+    <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
+</nav>
+<div class="employeedashboard">
+    <div class="topside">
+        <div class="profile">
+            <h1>Welcome, <span class="green">{{fname}}</span>!</h1>
+            <p>First Name : {{fname}}</p>
+            <p>Last Name : {{lname}}</p>
+            <p>Age : {{age}}</p>
+            <p>Email : {{email}}</p>
+            <p>Phone : {{phone}}</p>
+            <p>Position : {{position}}</p>
+        </div>
+        <div class="points">
+            <h2>Number of<br> Employees :</h2>
+            <h1 class="largesize">{{employeeCount}}</h1>
+        </div>
+        <div class="points">
+            <h2>Number of<br>Awards Given  :</h2>
+            <h1 class="largesize green">{{awardCount}}</h1>
+        </div>
+        <div class="points marginright">
+            <h2>Number of<br>Redeemed Products  :</h2>
+            <h1 class="largesizered">{{productCount}}</h1>
+        </div>
+    </div>
+    <div class="bottomside marginright"> 
+        <h1 class="reward">Top Performers</h1>
+        <table border="1">
+            <tr>
+            <th>Sl. No</th>
+            <th>Employee Name</th>
+            <th>No. of Points</th>
+            </tr>
+            <ng-container *ngFor="let performer of activeEmployees;let i = index"> <!--since we are using ngIf on tr, we have to use ngfor in another. so adding it on ng-container-->
+                <tr *ngIf="i < 5">
+                    <td class="column">{{i+1}}</td> <!-- for serial numbering -->
+                    <td class="column verticalcenter">
+                        <ng-container *ngIf="i === 0"> <!--display diamond badge for #1-->
+                            <img src="/assets/images/diamond.jpg" alt="Diamond Icon" class="badge"/>
+                        </ng-container>
+                        <ng-container *ngIf="i === 1"> <!--display platinum badge for #2 and so on-->
+                            <img src="/assets/images/platinum.jpg" alt="Platinum Icon" class="badge"/>
+                        </ng-container>
+                        <ng-container *ngIf="i === 2">
+                            <img src="/assets/images/gold.jpg" alt="Gold Icon" class="badge"/>
+                        </ng-container>
+                        <ng-container *ngIf="i === 3">
+                            <img src="/assets/images/silver.jpg" alt="Silver Icon" class="badge"/>
+                        </ng-container>
+                        <ng-container *ngIf="i === 4">
+                            <img src="/assets/images/bronze.jpg" alt="Bronze Icon" class="badge"/>
+                        </ng-container>
+                        <span class="employeename">{{performer.employeeFirstName}} {{performer.employeeLastName}} [ ID : {{performer.employeeId}}]</span>
+                    </td>
+                    <td class="column green">{{performer.employeeTotalPoints}}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+</div>

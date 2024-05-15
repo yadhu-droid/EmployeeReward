@@ -1,0 +1,24 @@
+
+<body>
+    <nav>
+    <a routerLink="/employee">Home</a>
+    <a routerLink="/products">View Products</a>
+    <a class="default">My Orders</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/updatepassword">Update Password</a>
+    <a routerLink="/" class="redhover" style="color: red;" (click)="logout()">Logout</a>
+    </nav>
+  <div class="product-container" *ngFor="let chunk of chunkedOrders">
+      <div class="product-card" *ngFor="let order of chunk">
+          <div class="product-details image">
+              <div class="product-description">
+                <img src="data:image/png;base64,{{order.product.merchImagePath}}" alt="Product Image" class="product-image">
+              </div>
+              <div class="product-description">Order ID : {{order.transactionDebitId}} </div>
+              <div class="product-description">Product Name : {{order.product.merchName}}</div>
+              <div class="product-description">Order Placed at : {{order.transactionDateTime | date}}</div>
+              <div class="product-description">Bytes : {{order.product.merchCost}}</div>
+          </div>
+      </div>
+  </div>
+</body>

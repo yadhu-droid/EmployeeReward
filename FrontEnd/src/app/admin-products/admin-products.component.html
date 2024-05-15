@@ -1,0 +1,40 @@
+<body>
+    <nav>
+        <a routerLink="/admin">Home</a>
+        <a class="default">Products</a>
+        <a routerLink="/addproducts">Product Allocation</a>
+        <a routerLink="/addpoints">Point Allocation</a>
+        <a routerLink="/viewemployees">View Employees</a>
+        <a routerLink="/employeebyadmin">Add Employees</a>
+        <a routerLink="/employee">Login as Employee</a>
+        <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
+    </nav>
+    <div class="product-container" *ngFor="let chunk of chunkedProducts">
+        <div *ngFor="let product of chunk" class="product-card">
+            <img src="data:image/png;base64,{{product.merchImagePath}}" alt="Product Image" class="product-image">
+            <div class="product-details">
+                <div class="product-title" style="font-weight: bold; font-size: 15px;">{{product.merchName}}</div>
+                <div class="product-description"><mark class="creammark">{{product.merchCategory}}</mark><mark class="greenmark">{{product.merchStatus}}</mark></div>
+                <div class="product-description">Manufacturer : <span class="bold">{{product.merchManufacturer}}</span></div>
+                <div class="product-description">Stock Available : <span class="bold">{{product.merchQuantity}}</span></div>
+                <div class="product-description">{{product.merchDescription}}</div>
+                <div *ngIf="product.merchExpiryDate" class="product-description">
+                    Expiry Date : <span class="redtext">{{product.merchExpiryDate}}</span>
+                </div>
+                <hr>
+                <div class="center">
+                    <div class="bold">Bytes : <span class="green">{{product.merchCost}}</span></div>
+                    <div class="flex">
+                    <button class="button flex red" (click)="deleteProduct(product.merchId)">Delete</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="success-message" *ngIf="showSuccessMessage">
+            <div class="message-content">
+            Successfully deleted the product !
+            </div>
+        </div>
+        <!-- Add more product cards as needed -->
+</body>

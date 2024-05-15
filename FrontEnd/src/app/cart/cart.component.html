@@ -1,0 +1,51 @@
+<nav>
+    <a routerLink="/employee">Home</a>
+    <a routerLink="/products">View Products</a>
+    <a routerLink="/orders">My Orders</a>
+    <a class="defualt">Cart</a>
+    <a routerLink="/updatepassword">Update Password</a>
+    <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
+</nav><br><br><br>
+<div class="emptycart" *ngIf="!showTotal">
+    Your Cart is Empty <br>
+    <img src="/assets/images/emptycart.png">
+</div>
+<table *ngIf="showTotal">
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Product Image</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Amount</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of activeCart;let i = index">
+        <td>{{i+1}}</td>
+        <td><img src="data:image/png;base64,{{item.product.merchImagePath}}" alt="Product Image" class="product-image"></td>
+        <td>{{item.product.merchName}}</td>
+        <td>{{item.product.merchCost}} Bytes</td>
+        <td><button (click)="deleteOrder(item.cartId)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="total" *ngIf="showTotal">
+    Total Amount : <span class="green">{{this.cartAmountSum}}</span> Bytes<br>
+    <button class="button" (click)="buyBulkProduct()">Buy Now</button>
+  </div>
+  <div class="success-message" *ngIf="showSuccessMessage">
+    <div class="message-content">
+        Successfully deleted the element from the cart !
+    </div>
+  </div>
+  <div class="success-message danger" *ngIf="showFailedMessage">
+    <div class="message-content">
+        You cannot place the order as you have less bytepoints !
+    </div>
+  </div>
+  <div class="success-message" *ngIf="showSuccessMessage2">
+    <div class="message-content">
+        Successfully placed the orders !
+    </div>
+  </div>

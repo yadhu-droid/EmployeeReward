@@ -1,0 +1,52 @@
+<nav>
+    <a class="mousehover default">Home</a>
+    <a routerLink="/products">View Products</a>
+    <a routerLink="/orders">My Orders</a>
+    <a routerLink="/cart">Cart</a>
+    <a routerLink="/updatepassword">Update Password</a>
+    <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
+</nav>
+<div class="employeedashboard">
+    <div class="topside">
+        <div class="profile">
+            <h1>Welcome, <span class="green">{{fname}}</span>!</h1>
+            <p>First Name : {{fname}}</p>
+            <p>Last Name : {{lname}}</p>
+            <p>Age : {{age}}</p>
+            <p>Email : {{email}}</p>
+            <p>Phone : {{phone}}</p>
+            <p>Position : {{position}}</p>
+        </div>
+        <div class="points">
+            <h2>Total Points<br> Obtained :</h2>
+            <h1 class="largesize">{{totalPoints}}</h1>
+        </div>
+        <div class="points">
+            <h2>Current<br>Points  :</h2>
+            <h1 class="largesize green">{{totalCurrentPoints}}</h1>
+        </div>
+        <div class="points marginright">
+            <h2>Redeemed<br>Points  :</h2>
+            <h1 class="largesizered">{{totalDebitPoints}}</h1>
+        </div>
+    </div>
+    <div class="bottomside marginright">
+        <h1 class="reward">Performance</h1>
+        <table border="1">
+            <tr>
+            <th>Sl. No</th>
+            <th>Award/Performance</th>
+            <th>Points Credited</th>
+            <th>Date</th>
+            <th>Remarks</th>
+            </tr>
+            <tr *ngFor="let transaction of performanceList;let i = index">
+                <td class="column">{{i+1}}</td> <!-- for serial numbering -->
+                <td class="column">{{transaction.award}}</td>
+                <td class="column green">+{{transaction.numberofPoints}}</td>
+                <td class="column">{{truncateDate(transaction.transactionDateTime)}}</td>
+                <td class="column green">{{transaction.remarks}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="fullbody">
+  <nav>
+    <a routerLink="/admin">Home</a>
+    <a routerLink="/adminproducts">Products</a>
+    <a class="default">Product Allocation</a>
+    <a routerLink="/addpoints">Point Allocation</a>
+    <a routerLink="/viewemployees">View Employees</a>
+    <a routerLink="/employeebyadmin">Add Employees</a>
+    <a routerLink="/employee">Login as Employee</a>
+    <a routerLink="/" class="redhover" style="color:red;">Logout</a>
+</nav>
+<div class="body">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="twoinone">
+      <div class="column">
+        <div class="paddingsmall">Product Name</div>
+        <input type = "text" id="merchName" formControlName="merchName">
+        <div *ngIf="productForm.get('merchName')?.invalid && productForm.get('merchName')?.touched" class="text-danger">
+          <!-- ? is there as that field may have null value-->
+          *this field is required.
+        </div>
+      </div>
+      <div class="column right">
+        <label for="category"><div class="paddingsmall">Category</div></label>
+        <select id="category" name="category" formControlName="merchCategory">
+        <option value="Apparel">Apparel</option>
+        <option value="Footwear">Footwear</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Books">Books</option>
+        <option value="Stationary">Stationary</option>
+        <option value="Sports">Sports</option>
+        <option value="Food">Food</option>
+        <option value="Others">Others</option>
+        </select>
+        <div *ngIf="productForm.get('merchCategory')?.invalid && productForm.get('merchCategory')?.touched" class="text-danger">
+          <!-- ? is there as that field may have null value-->
+          *this field is required.
+        </div>
+      </div>
+    </div>
+    <div class="longcolumn">
+      <div class="paddingsmall">Description</div>
+      <textarea id="description" formControlName="merchDescription"></textarea>
+      <div *ngIf="productForm.get('merchDescription')?.invalid && productForm.get('merchDescription')?.touched" class="text-danger">
+        <!-- ? is there as that field may have null value-->
+        *this field is required.
+      </div>
+    </div>
+    <div class="twoinone">
+        <div class="column">
+          <div class="paddingsmall">Manufacturer</div>
+          <input type="text" id="manufacturer" formControlName="merchManufacturer">
+          <div *ngIf="productForm.get('merchManufacturer')?.invalid && productForm.get('merchManufacturer')?.touched" class="text-danger">
+            <!-- ? is there as that field may have null value-->
+            *this field is required.
+          </div>
+        </div>
+        <div class="column right">
+          <div class="paddingsmall">Expiry Date (Optional)</div>
+          <input type="date" id="date" formControlName="merchExpiryDate">
+        </div>
+    </div>
+    <div class="twoinone">
+        <div class="column">
+          <div class="paddingsmall">Quantity Available</div>
+          <input type="number" id="quantity" formControlName="merchQuantity">
+          <div *ngIf="productForm.get('merchQuantity')?.invalid && productForm.get('merchQuantity')?.touched" class="text-danger">
+            <!-- ? is there as that field may have null value-->
+            *this field is required.
+          </div>
+        </div>
+        <div class="column right">
+          <div class="paddingsmall">Points Required</div>
+          <input type="number" id="points" formControlName="merchPoints">
+          <div *ngIf="productForm.get('merchPoints')?.invalid && productForm.get('merchPoints')?.touched" class="text-danger">
+            <!-- ? is there as that field may have null value-->
+            *this field is required.
+          </div>
+        </div>
+    </div>
+    <div class="longcolumn">
+      <div class="paddingsmall">Image</div>
+      <input type="file" id="imageInput" name="imageInput" accept="image/png" (change)="onFileSelected($event)" formControlName="base64Image">
+      <div *ngIf="productForm.get('base64Image')?.invalid && productForm.get('base64Image')?.touched" class="text-danger">
+        <!-- ? is there as that field may have null value-->
+        *this field is required.
+      </div>
+      <div class="text-danger">
+        <!-- ? is there as that field may have null value-->
+        *please upload only png images
+      </div>
+    </div>
+    <div class="longcolumn">
+      <div class="paddingsmall">Redemption Conditions</div>
+      <textarea id="redemption" formControlName="merchRedemptionConditions"></textarea>
+      <div *ngIf="productForm.get('merchRedemptionConditions')?.invalid && productForm.get('merchRedemptionConditions')?.touched" class="text-danger">
+        <!-- ? is there as that field may have null value-->
+        *this field is required.
+      </div>
+    </div>
+    <div class="longcolumn">
+      <div class="paddingsmall">Terms And Conditions</div>
+      <textarea id="tandc" formControlName="merchTermsAndConditions"></textarea>
+      <div *ngIf="productForm.get('merchTermsAndConditions')?.invalid && productForm.get('merchTermsAndConditions')?.touched" class="text-danger">
+        <!-- ? is there as that field may have null value-->
+        *this field is required.
+      </div>
+    </div>
+    <div class="button">
+      <input type="submit" value="+ Add">
+    </div>
+  </form>
+  <div class="success-message" *ngIf="showSuccessMessage">
+    <div class="message-content">
+    Product added successfully !
+    </div>
+</div>
+</div>
+</div>

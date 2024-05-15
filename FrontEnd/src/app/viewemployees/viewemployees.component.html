@@ -1,0 +1,44 @@
+<nav>
+    <a routerLink="/admin">Home</a>
+    <a routerLink="/adminproducts">Products</a>
+    <a routerLink="/addproducts">Product Allocation</a>
+    <a routerLink="/addpoints">Point Allocation</a>
+    <a class="default">View Employees</a>
+    <a routerLink="/employeebyadmin">Add Employees</a>
+    <a routerLink="/employee">Login as Employee</a>
+    <a routerLink="/" class="redhover" (click)="logout()" style="color: red;">Logout</a>
+</nav>
+<div class="employee-title">Current Employees :</div>
+<div class="employee-container" *ngFor="let chunk of chunkedEmployees">
+        <div class="employee-card" *ngFor="let employee of chunk">
+            <div class="employee-details">
+                <div class="employee-description" style="font-weight: bold;font-size: 20px;">Name : {{employee.employeeFirstName}} {{employee.employeeLastName}} </div>
+                <div class="employee-description">Email : {{employee.employeeEmail}}</div>
+                <div class="employee-description">Phone : {{employee.employeePhone}}</div>
+                <div class="employee-description">Position : {{employee.employeePosition}}</div>
+                <div class="employee-description">Total Points : {{employee.employeeTotalPoints}}</div>
+                <div class="employee-description">Current Points : {{employee.employeeTotalPoints-employee.employeeTotalDebitPoints}}</div>
+                <div class="flex">
+                    <button class="button flex red" (click)="deleteEmployee(employee.employeeId)">Delete</button>
+                </div>
+            </div>
+        </div>
+</div>
+<hr>
+<div class="employee-title">Past Employees :</div>
+<div class="employee-container" *ngFor="let chunk of inactivechunkedEmployees">
+    <div class="employee-card" *ngFor="let employee of chunk">
+        <div class="employee-details">
+            <div class="employee-description" style="font-weight: bold;font-size: 20px;">Name : {{employee.employeeFirstName}} {{employee.employeeLastName}} </div>
+            <div class="employee-description">Email : {{employee.employeeEmail}}</div>
+            <div class="employee-description">Phone : {{employee.employeePhone}}</div>
+            <div class="employee-description">Position : {{employee.employeePosition}}</div>
+        </div>
+    </div>
+</div>
+<div class="success-message" *ngIf="showSuccessMessage">
+    <div class="message-content">
+    Successfully deleted the employee !
+    </div>
+</div>
+  

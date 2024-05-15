@@ -1,0 +1,105 @@
+<nav>
+  <a routerLink="/admin">Home</a>
+  <a routerLink="/adminproducts">Products</a>
+  <a routerLink="/addproducts">Product Allocation</a>
+  <a routerLink="/addpoints">Point Allocation</a>
+  <a routerLink="/viewemployees">View Employees</a>
+  <a class="default">Add Employees</a>
+  <a routerLink="/employee">Login as Employee</a>
+  <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
+</nav>
+<div class="body">
+    <div class="container">
+      <div class="content">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">First Name</span>
+              <input type="text" placeholder="Enter first name" id="fname" formControlName="fname" required>
+              <div *ngIf="registerForm.get('fname')?.invalid && registerForm.get('fname')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is required.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Last Name</span>
+              <input type="text" placeholder="Enter last name" id="lname" formControlName="lname" required>
+              <div *ngIf="registerForm.get('lname')?.invalid && registerForm.get('lname')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is required.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter email" id="email" formControlName="email" required>
+              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is not valid here.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="text" placeholder="Enter phone number" id="phone" formControlName="phone" required>
+              <div *ngIf="registerForm.get('phone')?.errors?.['invalidPhone'] && registerForm.get('phone')?.touched" class="text-danger">
+                Phone number is not valid.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Age</span>
+              <input type="number" placeholder="Enter age" id="age" formControlName="age" required>
+              <div *ngIf="registerForm.get('age')?.invalid && registerForm.get('age')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is required.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Designation</span>
+              <input type="text" placeholder="Enter designation" id="designation" formControlName="designation" required>
+              <div *ngIf="registerForm.get('designation')?.invalid && registerForm.get('designation')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is required.
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" placeholder="Enter password" id="password" formControlName="password" required>
+              <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+                <!-- ? is there as that field may have null value-->
+                *this field is required.
+              </div>
+            </div>
+          </div>
+          <div class="gender-details">
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <input type="radio" formControlName="gender" value="Male"><span class="gendervalueinside">Male</span>
+              <input class="gendervalue" type="radio" formControlName="gender" value="Female"><span class="gendervalueinside">Female</span>
+              <input class="gendervalue" type="radio" formControlName="gender" value="Other"><span class="gendervalueinside">Other</span>
+            </div>
+            <div *ngIf="registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched" class="text-danger">
+              <!-- ? is there as that field may have null value-->
+              *this field is required.
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="success-message" *ngIf="showSuccessMessage==1">
+      <div class="message-content">
+          Registration Successful !
+      </div>
+    </div>
+    <div class="success-message" *ngIf="showSuccessMessage==2">
+      <div class="message-content">
+          Employee Already Exists !
+      </div>
+    </div>
+    <div class="success-message" *ngIf="showSuccessMessage==0">
+      <div class="message-content">
+          Not a Bytestrone Employee !
+      </div>
+    </div>
+</div>

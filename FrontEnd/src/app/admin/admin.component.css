@@ -1,0 +1,187 @@
+.topside{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile{
+    width: 30%;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+    margin-top: 15px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.green{
+    color: green;
+}
+
+.button-7 {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+    margin-left: 30px;
+  }
+  
+  .button-7:hover,
+  .button-7:focus {
+    background-color: #07c;
+  }
+  
+  .button-7:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+  }
+  
+  .button-7:active {
+    background-color: #0064bd;
+    box-shadow: none;
+  }
+
+  .points{
+    width: 20%;
+    padding:5px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: white;
+  }
+
+  .largesize{
+    font-size: 70px;
+  }
+
+  .largesizered{
+    font-size: 70px;
+    color: red;
+  }
+
+  .manybuttons{
+    padding: 15px;
+    margin-top: 30px;
+    width: 130px;
+    font-weight: bold;
+  }
+
+  .red{
+    background-color: red;
+  }
+
+  .bottomside{
+    margin-left: 20px;
+    margin-top: 12px;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: white;
+  }
+
+  .employeedashboard{
+    background-color: #e6e6e6;
+    min-height: 100vh;
+    height:max-content;
+  }
+
+  .marginright{
+    margin-right: 20px;
+  }
+
+  .mousehover:hover{
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  th{
+    padding: 1rem;
+  }
+  
+
+  table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+  }
+
+  .column{
+    padding: 30px;
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    background-color: #444;
+    justify-content:space-between;
+    padding: 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.verticalcenter{
+  position: relative;
+  text-align: left !important;
+  min-width: 200px;
+}
+
+.badge{
+  margin-left: 30%;
+}
+
+.employeename{
+  position: absolute;
+  top: 40%;
+  left: 43%;
+}
+
+.badge{
+  height: 50px;
+  width: 50px;
+}
+
+nav a:hover {
+    background-color: #555;
+    color:cornflowerblue;
+}
+
+.default{
+  background-color: #555;
+  color:cornflowerblue !important;
+}
+
+.default:hover{
+  cursor: default;
+}
+
+.redhover{
+    color:red !important;
+  }
+
+
+
