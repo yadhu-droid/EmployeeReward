@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: IndexpageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: 'employee', component:EmployeeComponent,canActivate:[AuthGuardService]},
+  { path: 'student', component:EmployeeComponent,canActivate:[AuthGuardService]},
   { path: 'admin',component:AdminComponent,canActivate:[AuthGuardService]},
   { path: 'error',component:ErrorpageComponent},
 ];

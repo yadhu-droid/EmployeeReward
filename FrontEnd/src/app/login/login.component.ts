@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
               this.authService.login();
               this.sharedService.setData(response);
               if (response.employeeRole === 'Employee') {
-                this.router.navigate(['/employee']);
+                this.router.navigate(['/student']);
               }
               if (response.employeeRole === 'Admin') {
                 this.router.navigate(['/admin']);
