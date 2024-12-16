@@ -11,17 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmployeeComponent } from './employee/employee.component';
 import { AdminComponent } from './admin/admin.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductsaddComponent } from './productsadd/productsadd.component';
-import { PointsaddComponent } from './pointsadd/pointsadd.component';
-import { RegistrationByAdminComponent } from './registration-by-admin/registration-by-admin.component';
-import { MyordersComponent } from './myorders/myorders.component';
-import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AuthGuardService } from './auth-guard.service';
-import { ViewemployeesComponent } from './viewemployees/viewemployees.component';
-import { UpdatepasswordComponent } from './updatepassword/updatepassword.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,15 +23,6 @@ import { CartComponent } from './cart/cart.component';
     EmployeeComponent,
     AdminComponent,
     ErrorpageComponent,
-    ProductsComponent,
-    ProductsaddComponent,
-    PointsaddComponent,
-    RegistrationByAdminComponent,
-    MyordersComponent,
-    AdminProductsComponent,
-    ViewemployeesComponent,
-    UpdatepasswordComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,

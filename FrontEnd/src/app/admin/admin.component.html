@@ -1,11 +1,10 @@
 <nav>
     <a class="mousehover default">Home</a>
-    <a routerLink="/adminproducts">Products</a>
-    <a routerLink="/addproducts">Product Allocation</a>
-    <a routerLink="/addpoints">Point Allocation</a>
-    <a routerLink="/viewemployees">View Employees</a>
-    <a routerLink="/employeebyadmin">Add Employees</a>
-    <a routerLink="/employee">Login as Employee</a>
+    <a >Products</a>
+    <a>Product Allocation</a>
+    <a >Point Allocation</a>
+    <a >View Students</a>
+    <a>Add Students</a>
     <a routerLink="/" class="redhover" (click)="logout()">Logout</a>
 </nav>
 <div class="employeedashboard">
@@ -20,7 +19,7 @@
             <p>Position : {{position}}</p>
         </div>
         <div class="points">
-            <h2>Number of<br> Employees :</h2>
+            <h2>Number of<br> Students :</h2>
             <h1 class="largesize">{{employeeCount}}</h1>
         </div>
         <div class="points">
@@ -37,7 +36,7 @@
         <table border="1">
             <tr>
             <th>Sl. No</th>
-            <th>Employee Name</th>
+            <th>Student Name</th>
             <th>No. of Points</th>
             </tr>
             <ng-container *ngFor="let performer of activeEmployees;let i = index"> <!--since we are using ngIf on tr, we have to use ngfor in another. so adding it on ng-container-->
