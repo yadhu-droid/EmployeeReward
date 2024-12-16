@@ -1,4 +1,4 @@
-package com.bytes.intern.assessment.model;
+package com.sts.model;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

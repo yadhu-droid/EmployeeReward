@@ -1,4 +1,4 @@
-package com.bytes.intern.assessment.model;
+package com.sts.model;
 
 import java.math.BigInteger;
 
@@ -10,8 +10,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="employee_table")
-public class Employee {
+@Table(name="student_table")
+public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long employeeId;
@@ -39,11 +39,11 @@ public class Employee {
 	public void setEmployeeRole(String employeeRole) {
 		this.employeeRole = employeeRole;
 	}
-	public Employee() {
+	public Student() {
 		super();
 	}
 	
-	public Employee(long employeeId, String employeeFirstName, String employeeLastName, int employeeAge,
+	public Student(long employeeId, String employeeFirstName, String employeeLastName, int employeeAge,
 			String employeeGender, long employeePhone, String employeeEmail, String employeePosition,
 		    String employeePassword, String employeeRole, BigInteger employeeTotalPoints,
 			long employeeTotalDebitPoints,String status) {

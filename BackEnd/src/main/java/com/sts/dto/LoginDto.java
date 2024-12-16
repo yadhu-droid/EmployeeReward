@@ -1,4 +1,4 @@
-package com.bytes.intern.assessment.dto;
+package com.sts.dto;
 
 public class LoginDto {
 	private String email;

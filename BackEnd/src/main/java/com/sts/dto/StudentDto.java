@@ -1,6 +1,6 @@
-package com.bytes.intern.assessment.dto;
+package com.sts.dto;
 
-public class EmployeeDto {
+public class StudentDto {
 	private String fname;
 	private String lname;
 	private String email;
